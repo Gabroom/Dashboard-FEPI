@@ -385,34 +385,6 @@ function KPI({ icon: Icon, label, value, sub, color, badge, benchmark }: {
   );
 }
 
-// ── KPI de texto con interpretación dinámica ───────────────────────────────
-function KPIText({ icon: Icon, label, value, valueSub, sub, color, benchmark }: {
-  icon: React.ComponentType<{ size?: number; color?: string }>;
-  label: string;
-  value: string;
-  valueSub?: string;
-  sub?: string;
-  color?: string;
-  benchmark?: string;
-}) {
-  return (
-    <div style={{ background: PALETTE.surface, border: `0.5px solid ${PALETTE.border}`, borderRadius: 10, padding: "10px 12px", flex: 1, minWidth: 120 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 6 }}>
-        <Icon size={12} color={color || PALETTE.accent} />
-        <span style={{ fontSize: 10, color: PALETTE.dim }}>{label}</span>
-      </div>
-      <div style={{ fontSize: 14, fontWeight: 500, color: color || PALETTE.text, lineHeight: 1.3 }}>{value}</div>
-      {valueSub && <div style={{ fontSize: 10, color: color, marginTop: 2, fontWeight: 500 }}>{valueSub}</div>}
-      {sub && <div style={{ fontSize: 10, color: PALETTE.muted, marginTop: 4, lineHeight: 1.4 }}>{sub}</div>}
-      {benchmark && (
-        <div style={{ marginTop: 5, paddingTop: 5, borderTop: `0.5px solid ${PALETTE.border}`, fontSize: 9 }}>
-          <span style={{ color: "#475569" }}>Referencia: </span><span style={{ color: PALETTE.dim }}>{benchmark}</span>
-        </div>
-      )}
-    </div>
-  );
-}
-
 // ── Cinta de Resumen (Métricas Secundarias) ────────────────────────────────
 function KPIMini({ metrics }: { metrics: { icon: any; label: string; value: string; sub: string; color?: string }[] }) {
   return (
